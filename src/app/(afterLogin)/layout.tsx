@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import styles from '@/app/(afterLogin)/layout.module.css';
+import styles from '@/app/(afterLogin)/layout.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import ZLogo from '@/../public/zlogo.png';
