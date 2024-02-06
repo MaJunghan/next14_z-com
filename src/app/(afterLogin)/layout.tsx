@@ -3,6 +3,8 @@ import styles from '@/app/(afterLogin)/layout.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import ZLogo from '@/../public/zlogo.png';
+import NavMenu from '@/app/(afterLogin)/_component/NavMenu';
+import LogoutButton from '@/app/(afterLogin)/_component/LogoutButton';
 
 export default function AfterLoginLayout({
   children,
@@ -19,6 +21,15 @@ export default function AfterLoginLayout({
                 <Image src={ZLogo} alt='z.com로고' width={40} height={40} />
               </div>
             </Link>
+            <nav>
+              <ul>
+                <NavMenu />
+              </ul>
+              <Link href='/compose/tweet' className={styles.postButton}>
+                게시하기
+              </Link>
+            </nav>
+            <LogoutButton />
           </div>
         </section>
       </header>
