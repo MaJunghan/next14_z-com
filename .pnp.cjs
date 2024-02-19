@@ -29,6 +29,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:20.11.16"],\
           ["@types/react", "npm:18.2.53"],\
           ["@types/react-dom", "npm:18.2.18"],\
+          ["classnames", "npm:2.5.1"],\
           ["dayjs", "npm:1.11.10"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:567efcf278f71bc72d222a02a97d8715b3e941655b5ebf0ea7d26aa13f8efbd2f67c150138b27cd0b096151b22cc4eb5e167473c5ddd9de65b0e2f17ee1ee81d#npm:14.1.0"],\
@@ -945,6 +946,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/chownr-npm-2.0.0-638f1c9c61-10c0.zip/node_modules/chownr/",\
         "packageDependencies": [\
           ["chownr", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["classnames", [\
+      ["npm:2.5.1", {\
+        "packageLocation": "../../.yarn/berry/cache/classnames-npm-2.5.1-c7273f3423-10c0.zip/node_modules/classnames/",\
+        "packageDependencies": [\
+          ["classnames", "npm:2.5.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3025,6 +3035,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:20.11.16"],\
           ["@types/react", "npm:18.2.53"],\
           ["@types/react-dom", "npm:18.2.18"],\
+          ["classnames", "npm:2.5.1"],\
           ["dayjs", "npm:1.11.10"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:567efcf278f71bc72d222a02a97d8715b3e941655b5ebf0ea7d26aa13f8efbd2f67c150138b27cd0b096151b22cc4eb5e167473c5ddd9de65b0e2f17ee1ee81d#npm:14.1.0"],\
