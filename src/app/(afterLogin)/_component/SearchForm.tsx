@@ -1,6 +1,7 @@
 import styles from '@/app/(afterLogin)/_component/rightSearchZone.module.scss';
 
-export default function SearchForm() {
+type Props = { q?: string };
+export default function SearchForm({ q }: Props) {
   return (
     <form className={styles.search}>
       <svg width={20} viewBox='0 0 24 24' aria-hidden='true'>
