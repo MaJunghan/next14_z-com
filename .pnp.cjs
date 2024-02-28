@@ -26,6 +26,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@faker-js/faker", "npm:8.4.1"],\
           ["@types/node", "npm:20.11.16"],\
           ["@types/react", "npm:18.2.53"],\
           ["@types/react-dom", "npm:18.2.18"],\
@@ -116,6 +117,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/@eslint-js-npm-8.56.0-b1de08cbff-10c0.zip/node_modules/@eslint/js/",\
         "packageDependencies": [\
           ["@eslint/js", "npm:8.56.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@faker-js/faker", [\
+      ["npm:8.4.1", {\
+        "packageLocation": "../../.yarn/berry/cache/@faker-js-faker-npm-8.4.1-dde75d9856-10c0.zip/node_modules/@faker-js/faker/",\
+        "packageDependencies": [\
+          ["@faker-js/faker", "npm:8.4.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3032,6 +3042,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["next14-z-com", "workspace:."],\
+          ["@faker-js/faker", "npm:8.4.1"],\
           ["@types/node", "npm:20.11.16"],\
           ["@types/react", "npm:18.2.53"],\
           ["@types/react-dom", "npm:18.2.18"],\
