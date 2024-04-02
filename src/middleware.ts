@@ -8,7 +8,7 @@ export async function middleware() {
   }
 }
 
-// 로그인 권한을 체크할 페이지
+// See "Matching Paths" below to learn more
 export const config = {
   matcher: ['/compose/tweet', '/home', '/explore', '/messages', '/search'],
 };
