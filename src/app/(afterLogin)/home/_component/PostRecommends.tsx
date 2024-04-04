@@ -14,11 +14,11 @@ export default function PostRecommends() {
 
   return (
     <>
-      {data?.map((post: IPost) => {
-        <Fragment>
-          <Post key={post.postId} post={post} />
-        </Fragment>;
-      })}
+      {data?.map((post: IPost) => (
+        <Fragment key={post.postId}>
+          <Post post={post} />
+        </Fragment>
+      ))}
     </>
   );
 }

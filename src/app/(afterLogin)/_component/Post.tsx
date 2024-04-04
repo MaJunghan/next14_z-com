@@ -7,7 +7,6 @@ import ActionButtons from '@/app/(afterLogin)/_component/ActionButton';
 import PostArticle from '@/app/(afterLogin)/_component/PostArticle';
 import PostImages from '@/app/(afterLogin)/_component/PostImages';
 import { Post } from '@/modal/Post';
-import { faker } from '@faker-js/faker';
 
 dayjs.locale('ko');
 dayjs.extend(relativeTime);
@@ -18,14 +17,6 @@ type Props = {
 };
 export default function Post({ noImage, post }: Props) {
   const target = post;
-  console.log(target, 'post');
-
-  if (Math.random() > 0.5 && !noImage) {
-    target.Images.push({ imageId: 1, link: faker.image.urlLoremFlickr() });
-    target.Images.push({ imageId: 2, link: faker.image.urlLoremFlickr() });
-    target.Images.push({ imageId: 3, link: faker.image.urlLoremFlickr() });
-    target.Images.push({ imageId: 4, link: faker.image.urlLoremFlickr() });
-  }
 
   return (
     <PostArticle post={target}>
