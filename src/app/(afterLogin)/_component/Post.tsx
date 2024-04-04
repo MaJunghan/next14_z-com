@@ -3,29 +3,22 @@ import Link from 'next/link';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/ko';
-import ActionButtons from './ActionButton';
-import PostArticle from './PostArticle';
+import ActionButtons from '@/app/(afterLogin)/_component/ActionButton';
+import PostArticle from '@/app/(afterLogin)/_component/PostArticle';
+import PostImages from '@/app/(afterLogin)/_component/PostImages';
+import { Post } from '@/modal/Post';
 import { faker } from '@faker-js/faker';
-import PostImages from './PostImages';
 
 dayjs.locale('ko');
 dayjs.extend(relativeTime);
 
 type Props = {
   noImage?: boolean;
+  post: Post;
 };
-export default function Post({ noImage }: Props) {
-  const target = {
-    postId: 1,
-    User: {
-      id: 'majunghan',
-      nickname: 'majunghan',
-      image: '/yRsRRjGO.jpg',
-    },
-    content: '클론코딩 라이브로 하니 너무 힘들어요 ㅠㅠ',
-    createdAt: new Date(),
-    Images: [] as any,
-  };
+export default function Post({ noImage, post }: Props) {
+  const target = post;
+  console.log(target, 'post');
 
   if (Math.random() > 0.5 && !noImage) {
     target.Images.push({ imageId: 1, link: faker.image.urlLoremFlickr() });
@@ -56,9 +49,11 @@ export default function Post({ noImage }: Props) {
             </span>
           </div>
           <div>{target.content}</div>
-          <div>
-            <PostImages post={target} />
-          </div>
+          {!noImage && (
+            <div>
+              <PostImages post={target} />
+            </div>
+          )}
           <ActionButtons />
         </div>
       </div>
