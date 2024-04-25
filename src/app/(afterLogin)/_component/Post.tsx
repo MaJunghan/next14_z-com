@@ -6,7 +6,7 @@ import 'dayjs/locale/ko';
 import ActionButtons from '@/app/(afterLogin)/_component/ActionButton';
 import PostArticle from '@/app/(afterLogin)/_component/PostArticle';
 import PostImages from '@/app/(afterLogin)/_component/PostImages';
-import { Post } from '@/modal/Post';
+import { Post } from '@/model/Post';
 import { faker } from '@faker-js/faker';
 
 dayjs.locale('ko');

@@ -12,6 +12,7 @@
   "dependencies": {
     "@auth/core": "^0.28.1",
     "@faker-js/faker": "^8.4.1",
+    "@tanstack/query-core": "^5.32.0",
     "@tanstack/react-query": "5",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",

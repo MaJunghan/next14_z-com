@@ -29,6 +29,7 @@ const RAW_RUNTIME_STATE =
           ["@auth/core", "virtual:567efcf278f71bc72d222a02a97d8715b3e941655b5ebf0ea7d26aa13f8efbd2f67c150138b27cd0b096151b22cc4eb5e167473c5ddd9de65b0e2f17ee1ee81d#npm:0.28.1"],\
           ["@faker-js/faker", "npm:8.4.1"],\
           ["@mswjs/http-middleware", "virtual:567efcf278f71bc72d222a02a97d8715b3e941655b5ebf0ea7d26aa13f8efbd2f67c150138b27cd0b096151b22cc4eb5e167473c5ddd9de65b0e2f17ee1ee81d#npm:0.9.2"],\
+          ["@tanstack/query-core", "npm:5.32.0"],\
           ["@tanstack/react-query", "virtual:567efcf278f71bc72d222a02a97d8715b3e941655b5ebf0ea7d26aa13f8efbd2f67c150138b27cd0b096151b22cc4eb5e167473c5ddd9de65b0e2f17ee1ee81d#npm:5.28.14"],\
           ["@tanstack/react-query-devtools", "virtual:567efcf278f71bc72d222a02a97d8715b3e941655b5ebf0ea7d26aa13f8efbd2f67c150138b27cd0b096151b22cc4eb5e167473c5ddd9de65b0e2f17ee1ee81d#npm:5.28.14"],\
           ["@types/cors", "npm:2.8.17"],\
@@ -568,6 +569,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/@tanstack-query-core-npm-5.28.13-c900f2d979-10c0.zip/node_modules/@tanstack/query-core/",\
         "packageDependencies": [\
           ["@tanstack/query-core", "npm:5.28.13"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:5.32.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tanstack-query-core-npm-5.32.0-8f96efd3bc-10c0.zip/node_modules/@tanstack/query-core/",\
+        "packageDependencies": [\
+          ["@tanstack/query-core", "npm:5.32.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4022,6 +4030,7 @@ const RAW_RUNTIME_STATE =
           ["@auth/core", "virtual:567efcf278f71bc72d222a02a97d8715b3e941655b5ebf0ea7d26aa13f8efbd2f67c150138b27cd0b096151b22cc4eb5e167473c5ddd9de65b0e2f17ee1ee81d#npm:0.28.1"],\
           ["@faker-js/faker", "npm:8.4.1"],\
           ["@mswjs/http-middleware", "virtual:567efcf278f71bc72d222a02a97d8715b3e941655b5ebf0ea7d26aa13f8efbd2f67c150138b27cd0b096151b22cc4eb5e167473c5ddd9de65b0e2f17ee1ee81d#npm:0.9.2"],\
+          ["@tanstack/query-core", "npm:5.32.0"],\
           ["@tanstack/react-query", "virtual:567efcf278f71bc72d222a02a97d8715b3e941655b5ebf0ea7d26aa13f8efbd2f67c150138b27cd0b096151b22cc4eb5e167473c5ddd9de65b0e2f17ee1ee81d#npm:5.28.14"],\
           ["@tanstack/react-query-devtools", "virtual:567efcf278f71bc72d222a02a97d8715b3e941655b5ebf0ea7d26aa13f8efbd2f67c150138b27cd0b096151b22cc4eb5e167473c5ddd9de65b0e2f17ee1ee81d#npm:5.28.14"],\
           ["@types/cors", "npm:2.8.17"],\
