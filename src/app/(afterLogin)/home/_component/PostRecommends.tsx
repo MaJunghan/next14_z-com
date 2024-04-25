@@ -30,6 +30,7 @@ export default function PostRecommends() {
   );
 }
 
+// actions
 // refetch: 무조건 새로 데이터를 가져옴
 // invalidate: observer에서 사용하는 데이터만 가져옴
 // reset : 초기데이터로 되돌리고 싶을때 사용, 만약 initialData가 없으면 데이터 새로가져옴
