@@ -3,7 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { getFollowingPosts } from '@/app/(afterLogin)/home/_lib/getFollowingPosts';
 import Post from '../../_component/Post';
-import { Post as IPost } from '@/modal/Post';
+import { Post as IPost } from '@/model/Post';
 import { Fragment } from 'react';
 
 export default function PostRecommends() {
