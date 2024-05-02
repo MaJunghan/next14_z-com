@@ -6,42 +6,45 @@ import 'dayjs/locale/ko';
 import ActionButtons from '@/app/(afterLogin)/_component/ActionButton';
 import PostArticle from '@/app/(afterLogin)/_component/PostArticle';
 import PostImages from '@/app/(afterLogin)/_component/PostImages';
-import { Post } from '@/model/Post';
-import { faker } from '@faker-js/faker';
+import { Post as IPost } from '@/model/Post';
 
 dayjs.locale('ko');
 dayjs.extend(relativeTime);
 
 type Props = {
   noImage?: boolean;
-  post: Post;
+  post: IPost;
 };
 export default function Post({ noImage, post }: Props) {
+  const target = post;
+
   return (
-    <PostArticle post={post}>
+    <PostArticle post={target}>
       <div className={style.postWrapper}>
         <div className={style.postUserSection}>
-          <Link href={`/${post.User.id}`} className={style.postUserImage}>
-            <img src={post.User.image} alt={post.User.nickname} />
+          <Link href={`/${target.User.id}`} className={style.postUserImage}>
+            <img src={target.User.image} alt={target.User.nickname} />
             <div className={style.postShade} />
           </Link>
         </div>
         <div className={style.postBody}>
           <div className={style.postMeta}>
-            <Link href={`/${post.User.id}`}>
-              <span className={style.postUserName}>{post.User.nickname}</span>
+            <Link href={`/${target.User.id}`}>
+              <span className={style.postUserName}>{target.User.nickname}</span>
               &nbsp;
-              <span className={style.postUserId}>@{post.User.id}</span>
+              <span className={style.postUserId}>@{target.User.id}</span>
               &nbsp; · &nbsp;
             </Link>
             <span className={style.postDate}>
-              {dayjs(post.createdAt).fromNow(true)}
+              {dayjs(target.createdAt).fromNow(true)}
             </span>
           </div>
-          <div>{post.content}</div>
-          <div>
-            <PostImages post={post} />
-          </div>
+          <div>{target.content}</div>
+          {!noImage && (
+            <div>
+              <PostImages post={target} />
+            </div>
+          )}
           <ActionButtons />
         </div>
       </div>
