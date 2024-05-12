@@ -1,16 +1,29 @@
 'use client';
-import styles from '@/app/(afterLogin)/layout.module.scss';
-import { usePathname } from 'next/navigation';
+
 import style from './rightSearchZone.module.scss';
-import SearchForm from './SearchForm';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import React from 'react';
+import SearchForm from '@/app/(afterLogin)/_component/SearchForm';
 
 export default function RightSearchZone() {
-  const pathName = usePathname();
-  const onChangeFollow = () => {};
-  const onChangeAll = () => {};
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-  if (pathName === '/explore') return null;
-  if (pathName === '/search') {
+  const onChangeFollow = () => {
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.set('pf', 'on');
+    router.replace(`/search?${newSearchParams.toString()}`);
+  };
+  const onChangeAll = () => {
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.delete('pf');
+    router.replace(`/search?${newSearchParams.toString()}`);
+  };
+  if (pathname === '/explore') {
+    return null;
+  }
+  if (pathname === '/search') {
     return (
       <div>
         <h5 className={style.filterTitle}>검색 필터</h5>
