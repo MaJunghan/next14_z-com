@@ -5,7 +5,7 @@ import { getPostRecommends } from '@/app/(afterLogin)/home/_lib/getPostRecommend
 import Post from '../../_component/Post';
 import { Post as IPost } from '@/model/Post';
 import { Fragment, useEffect } from 'react';
-import { InView, useInView } from 'react-intersection-observer';
+import { useInView } from 'react-intersection-observer';
 
 export default function PostRecommends() {
   const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery<
@@ -41,7 +41,7 @@ export default function PostRecommends() {
       // 다음 페이지는 5페이지씩 계산하여 5의 배수가 되지않으면 다음페이지가 없는 것
       !isFetching && hasNextPage && fetchNextPage();
     }
-  }, [InView, isFetching, hasNextPage, fetchNextPage]);
+  }, [inView, isFetching, hasNextPage, fetchNextPage]);
 
   return (
     <>
