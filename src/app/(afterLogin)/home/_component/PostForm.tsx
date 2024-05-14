@@ -26,7 +26,7 @@ export default function PostForm() {
       <div className={styles.postUserSection}>
         <div className={styles.postUserImage}>
           <img
-            src={me?.user?.email as string}
+            src={me?.user?.image as string}
             alt={me?.user?.email as string}
           />
         </div>

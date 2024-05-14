@@ -1,16 +1,25 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { InfiniteData, useInfiniteQuery } from '@tanstack/react-query';
 import { getPostRecommends } from '@/app/(afterLogin)/home/_lib/getPostRecommends';
 import Post from '../../_component/Post';
-import { Post as IPost } from '@/modal/Post';
-import { Fragment } from 'react';
+import { Post as IPost } from '@/model/Post';
+import { Fragment, useEffect } from 'react';
+import { InView, useInView } from 'react-intersection-observer';
 
 export default function PostRecommends() {
-  const { data } = useQuery<IPost[]>({
+  const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery<
+    IPost[],
+    Object,
+    InfiniteData<IPost[]>,
+    [_1: string, _2: string],
+    number
+  >({
     queryKey: ['posts', 'recommends'],
     queryFn: getPostRecommends,
     staleTime: 60 * 1000, // fresh -> stale 1분
+    initialPageParam: 0,
+    getNextPageParam: (lastPage) => lastPage.at(-1)?.postId,
   });
 
   // gcTime은 메모리에 저장될시간 defult 5분
@@ -19,13 +28,31 @@ export default function PostRecommends() {
   // stale이라면 데이터 fetcing
   // gcTime은 staleTime보다 길어야한다. => 캐싱된 데이터를 가져와야하는데 시간이 짧으면 의미가 없기때문
 
+  const { ref, inView } = useInView({
+    // 특정 엘리먼트가 보이고 몇픽셀
+    threshold: 0,
+    delay: 0,
+  });
+
+  useEffect(() => {
+    // 특정 엘리먼트가 보이면 inView => True
+    if (inView) {
+      // 데이터를 가져 오지 않을때면서 , 다음 페이지가 있을때
+      // 다음 페이지는 5페이지씩 계산하여 5의 배수가 되지않으면 다음페이지가 없는 것
+      !isFetching && hasNextPage && fetchNextPage();
+    }
+  }, [InView, isFetching, hasNextPage, fetchNextPage]);
+
   return (
     <>
-      {data?.map((post: IPost) => (
-        <Fragment key={post.postId}>
-          <Post post={post} />
+      {data?.pages.map((page, i) => (
+        <Fragment key={i}>
+          {page.map((post) => (
+            <Post key={post.postId} post={post} />
+          ))}
         </Fragment>
       ))}
+      <div ref={ref} style={{ height: 50 }} />
     </>
   );
 }
