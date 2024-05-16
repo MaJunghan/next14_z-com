@@ -1,6 +1,10 @@
 'use client';
 
-import { InfiniteData, useInfiniteQuery } from '@tanstack/react-query';
+import {
+  InfiniteData,
+  useInfiniteQuery,
+  useSuspenseInfiniteQuery,
+} from '@tanstack/react-query';
 import { getPostRecommends } from '@/app/(afterLogin)/home/_lib/getPostRecommends';
 import Post from '../../_component/Post';
 import { Post as IPost } from '@/model/Post';
@@ -9,8 +13,8 @@ import { useInView } from 'react-intersection-observer';
 import styles from '../homoe.module.scss';
 
 export default function PostRecommends() {
-  const { data, fetchNextPage, hasNextPage, isFetching, isPending } =
-    useInfiniteQuery<
+  const { data, fetchNextPage, hasNextPage, isFetching, isPending, isError } =
+    useSuspenseInfiniteQuery<
       IPost[],
       Object,
       InfiniteData<IPost[]>,
@@ -68,6 +72,10 @@ export default function PostRecommends() {
         </svg>
       </div>
     );
+  }
+
+  if (isError) {
+    return '에러 처리';
   }
 
   useEffect(() => {
