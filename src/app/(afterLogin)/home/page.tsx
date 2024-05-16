@@ -1,33 +1,21 @@
-import PostForm from './_component/PostForm';
-import Tab from './_component/Tab';
+import style from './homoe.module.scss';
+import Tab from '@/app/(afterLogin)/home/_component/Tab';
 import TabProvider from '@/app/(afterLogin)/home/_component/TabProvider';
-import styles from './homoe.module.scss';
-import {
-  HydrationBoundary,
-  QueryClient,
-  dehydrate,
-} from '@tanstack/react-query';
-import { getPostRecommends } from '@/app/(afterLogin)/home/_lib/getPostRecommends';
-import TabDecider from './_component/TabDecider';
+import PostForm from '@/app/(afterLogin)/home/_component/PostForm';
+import { Suspense } from 'react';
+import Loading from '@/app/(afterLogin)/home/loading';
+import TabDeciderSuspense from '@/app/(afterLogin)/home/_component/TabDeciderSuspense';
 
 export default async function Home() {
-  const queryClient = new QueryClient();
-  await queryClient.prefetchInfiniteQuery({
-    queryKey: ['posts', 'recommends'],
-    queryFn: getPostRecommends,
-    initialPageParam: 0,
-  });
-  const dehydradtedState = dehydrate(queryClient);
-
   return (
-    <main className={styles.main}>
-      <HydrationBoundary state={dehydradtedState}>
-        <TabProvider>
-          <Tab />
-          <PostForm />
-          <TabDecider />
-        </TabProvider>
-      </HydrationBoundary>
+    <main className={style.main}>
+      <TabProvider>
+        <Tab />
+        <PostForm />
+        <Suspense fallback={<Loading />}>
+          <TabDeciderSuspense />
+        </Suspense>
+      </TabProvider>
     </main>
   );
 }
