@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
 import style from './signup.module.scss';
 import onSubmit from '../_lib/signup';
-import BackButton from '@/app/(beforeLogin)/_component/BackButton';
+import BackButton from "@/app/(beforeLogin)/_component/BackButton";
 import { useFormState, useFormStatus } from 'react-dom';
 
-function showMessage(messasge: string | null) {
-  if (messasge === 'no_id') {
+function showMessage(message: string | null) {
+  if (message === 'no_id') {
     return '아이디를 입력하세요.';
   }
-  if (messasge === 'no_name') {
+  if (message === 'no_name') {
     return '닉네임을 입력하세요.';
   }
-  if (messasge === 'no_password') {
+  if (message === 'no_password') {
     return '비밀번호를 입력하세요.';
   }
-  if (messasge === 'no_image') {
+  if (message === 'no_image') {
     return '이미지를 업로드하세요.';
   }
-  if (messasge === 'user_exists') {
+  if (message === 'user_exists') {
     return '이미 사용 중인 아이디입니다.';
   }
   return '';
@@ -39,71 +39,35 @@ export default function SignupModal() {
           <form action={formAction}>
             <div className={style.modalBody}>
               <div className={style.inputDiv}>
-                <label className={style.inputLabel} htmlFor='id'>
-                  아이디
-                </label>
-                <input
-                  id='id'
-                  name='id'
-                  className={style.input}
-                  type='text'
-                  placeholder=''
-                  required
+                <label className={style.inputLabel} htmlFor="id">아이디</label>
+                <input id="id" name="id" className={style.input} type="text" placeholder=""
+                     required
                 />
               </div>
               <div className={style.inputDiv}>
-                <label className={style.inputLabel} htmlFor='name'>
-                  닉네임
-                </label>
-                <input
-                  id='name'
-                  name='name'
-                  className={style.input}
-                  type='text'
-                  placeholder=''
-                  required
+                <label className={style.inputLabel} htmlFor="name">닉네임</label>
+                <input id="name" name="name" className={style.input} type="text" placeholder=""
+                    required
                 />
               </div>
               <div className={style.inputDiv}>
-                <label className={style.inputLabel} htmlFor='password'>
-                  비밀번호
-                </label>
-                <input
-                  id='password'
-                  name='password'
-                  className={style.input}
-                  type='password'
-                  placeholder=''
-                  required
+                <label className={style.inputLabel} htmlFor="password">비밀번호</label>
+                <input id="password" name="password" className={style.input} type="password" placeholder=""
+                     required
                 />
               </div>
               <div className={style.inputDiv}>
-                <label className={style.inputLabel} htmlFor='image'>
-                  프로필
-                </label>
-                <input
-                  id='image'
-                  name='image'
-                  required
-                  className={style.input}
-                  type='file'
-                  accept='image/*'
+                <label className={style.inputLabel} htmlFor="image">프로필</label>
+                <input id="image" name="image" required className={style.input} type="file" accept="image/*"
                 />
               </div>
             </div>
             <div className={style.modalFooter}>
-              <button
-                type='submit'
-                className={style.actionButton}
-                disabled={pending}
-              >
-                가입하기
-              </button>
+              <button type="submit" className={style.actionButton} disabled={pending}>가입하기</button>
               <div className={style.error}>{showMessage(state?.message)}</div>
             </div>
           </form>
         </div>
       </div>
-    </>
-  );
+    </>)
 }

@@ -2,7 +2,6 @@
 
 import {
   InfiniteData,
-  useInfiniteQuery,
   useSuspenseInfiniteQuery,
 } from '@tanstack/react-query';
 import { getPostRecommends } from '@/app/(afterLogin)/home/_lib/getPostRecommends';
